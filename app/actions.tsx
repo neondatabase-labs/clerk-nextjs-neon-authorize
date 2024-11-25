@@ -18,7 +18,7 @@ export async function insertTodo({ newTodo }: { newTodo: string }) {
 }
 
 export async function getTodos(): Promise<Array<Todo>> {
-  return fetchWithDrizzle(async (db, { userId }) => {
+  return fetchWithDrizzle(async (db) => {
     // WHERE filter is optional because of RLS. But we send it anyway for
     // performance reasons.
     return db

@@ -30,7 +30,7 @@ export const todos = pgTable(
       read: authUid(table.userId),
       modify: authUid(table.userId),
     }),
-  ],
+  ]
 );
 
 export type Todo = InferSelectModel<typeof todos>;

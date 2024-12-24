@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: clerk-neon-authorize
+    runtime: node
+    plan: free # Or a different plan if needed
+    # Set NODE_ENV=development for build command since Render needs devDependencies to build Next.js (https://community.render.com/t/nextjs-deployment-fails-unless-devdependencies-moved-to-dependencies-in-package-json/26748)
+    buildCommand: NODE_ENV=development npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: false # Or true, depending on your preference
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        sync: false # Configure in Render Dashboard
+
+      - key: CLERK_SECRET_KEY
+        sync: false # Configure securely in Render Dashboard
+
+      - key: DATABASE_URL
+        sync: false # Securely configure the database URL in Render Dashboard
+
+      - key: DATABASE_AUTHENTICATED_URL
+        sync: false # Securely configure the authenticated database URL in Render Dashboard
+
+      - key: NEXT_PUBLIC_CLERK_SIGN_IN_URL
+        value: "/sign-in" # Default value, can be overridden in Render Dashboard
+
+      - key: NEXT_PUBLIC_CLERK_SIGN_UP_URL
+        value: "/sign-up" # Default value, can be overridden in Render Dashboard

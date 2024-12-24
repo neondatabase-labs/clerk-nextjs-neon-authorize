@@ -1,0 +1,25 @@
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "20"
+  # Add any other build-time environment variables here
+
+# Production context
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+# Development context (deploys from git branches)
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
+
+# Preview context (deploy previews from pull/merge requests)
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+# Environment variables that need to be set in Netlify UI
+[template.environment]
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "Required: Your Clerk publishable key"
+  CLERK_SECRET_KEY = "Required: Your Clerk secret key"
+  DATABASE_URL = "Required: NeonDB owner role connection string"
+  DATABASE_AUTHENTICATED_URL = "Required: NeonDB authenticated role connection string"
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL = "Optional: Your custom sign-in URL (default: /sign-in)"
+  NEXT_PUBLIC_CLERK_SIGN_UP_URL = "Optional: Your custom sign-up URL (default: /sign-up)"

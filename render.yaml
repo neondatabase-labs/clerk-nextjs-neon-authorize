@@ -20,7 +20,7 @@ services:
       - key: DATABASE_URL
         sync: false # Securely configure the database URL in Render Dashboard
 
-      - key: DATABASE_AUTHENTICATED_URL
+      - key: DATABASE_APPLICATION_URL
         sync: false # Securely configure the authenticated database URL in Render Dashboard
 
       - key: NEXT_PUBLIC_CLERK_SIGN_IN_URL

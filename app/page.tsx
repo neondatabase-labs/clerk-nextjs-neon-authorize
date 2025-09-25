@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs/server";
 import styles from "../styles/Home.module.css";
 
 export default async function Home() {
-  const { getToken } = auth();
+  const { getToken } = await auth();
   const authToken = await getToken();
 
   let content = null;

@@ -20,6 +20,6 @@
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY = "Required: Your Clerk publishable key"
   CLERK_SECRET_KEY = "Required: Your Clerk secret key"
   DATABASE_URL = "Required: NeonDB owner role connection string"
-  DATABASE_AUTHENTICATED_URL = "Required: NeonDB authenticated role connection string"
+  DATABASE_APPLICATION_URL = "Required: Role with permissions to connect to the tables. Check Readme for more info."
   NEXT_PUBLIC_CLERK_SIGN_IN_URL = "Optional: Your custom sign-in URL (default: /sign-in)"
   NEXT_PUBLIC_CLERK_SIGN_UP_URL = "Optional: Your custom sign-up URL (default: /sign-up)"

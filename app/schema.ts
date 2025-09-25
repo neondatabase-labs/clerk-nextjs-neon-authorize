@@ -1,13 +1,8 @@
 import { InferSelectModel, sql } from "drizzle-orm";
-import {
-  bigint,
-  boolean,
-  pgPolicy,
-  pgTable,
-  text,
-  timestamp,
-} from "drizzle-orm/pg-core";
-import { authenticatedRole, authUid, crudPolicy } from "drizzle-orm/neon";
+import { bigint, boolean, pgRole, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { authUid, crudPolicy } from "drizzle-orm/neon";
+
+export const applicationRole = pgRole("app_user").existing();
 
 export const todos = pgTable(
   "todos",
@@ -26,7 +21,7 @@ export const todos = pgTable(
   },
   (table) => [
     crudPolicy({
-      role: authenticatedRole,
+      role: applicationRole,
       read: authUid(table.userId),
       modify: authUid(table.userId),
     }),

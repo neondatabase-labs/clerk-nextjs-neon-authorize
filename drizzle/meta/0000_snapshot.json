@@ -1,5 +1,5 @@
 {
-  "id": "5003f111-c139-4c37-bb47-c029c296154d",
+  "id": "58440e33-e167-459c-9814-5436e00d036c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -58,40 +58,40 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {
-        "crud-authenticated-policy-select": {
-          "name": "crud-authenticated-policy-select",
+        "crud-app_user-policy-select": {
+          "name": "crud-app_user-policy-select",
           "as": "PERMISSIVE",
           "for": "SELECT",
           "to": [
-            "authenticated"
+            "app_user"
           ],
           "using": "(select auth.user_id() = \"todos\".\"user_id\")"
         },
-        "crud-authenticated-policy-insert": {
-          "name": "crud-authenticated-policy-insert",
+        "crud-app_user-policy-insert": {
+          "name": "crud-app_user-policy-insert",
           "as": "PERMISSIVE",
           "for": "INSERT",
           "to": [
-            "authenticated"
+            "app_user"
           ],
           "withCheck": "(select auth.user_id() = \"todos\".\"user_id\")"
         },
-        "crud-authenticated-policy-update": {
-          "name": "crud-authenticated-policy-update",
+        "crud-app_user-policy-update": {
+          "name": "crud-app_user-policy-update",
           "as": "PERMISSIVE",
           "for": "UPDATE",
           "to": [
-            "authenticated"
+            "app_user"
           ],
           "using": "(select auth.user_id() = \"todos\".\"user_id\")",
           "withCheck": "(select auth.user_id() = \"todos\".\"user_id\")"
         },
-        "crud-authenticated-policy-delete": {
-          "name": "crud-authenticated-policy-delete",
+        "crud-app_user-policy-delete": {
+          "name": "crud-app_user-policy-delete",
           "as": "PERMISSIVE",
           "for": "DELETE",
           "to": [
-            "authenticated"
+            "app_user"
           ],
           "using": "(select auth.user_id() = \"todos\".\"user_id\")"
         }
